@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MakeNapoliGreen — Rendiamo le città più verdi, insieme</title>
+  <meta name="description" content="Piattaforma civica per creare e seguire progetti di sostenibilità urbana: orti, aiuole, piantumazioni e pulizie nelle città della Campania." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'verde': { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#15803d',800:'#166534',900:'#14532d',950:'#052e16' },
+            'terra':  { 50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f',950:'#451a03' },
+            'foresta': '#2d6a4f',
+            'menta':   '#74c69d',
+            'dark':    '#1b1b1b',
+          },
+          fontFamily: { sans: ['Inter','sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-verde-50 font-sans text-dark antialiased">
+
+  <!-- ===== HEADER ===== -->
+  <header id="main-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-verde-100 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 font-extrabold text-xl text-foresta hover:opacity-80 transition-opacity" aria-label="MakeNapoliGreen homepage">
+          🌿 <span>MakeNapoliGreen</span>
+        </a>
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium" aria-label="Navigazione principale">
+          <a href="projects.html" class="nav-link text-gray-600 hover:text-foresta transition-colors">
+            <span class="lang-it">Progetti</span><span class="lang-en">Projects</span>
+          </a>
+          <a href="#come-funziona" class="nav-link text-gray-600 hover:text-foresta transition-colors">
+            <span class="lang-it">Come Funziona</span><span class="lang-en">How It Works</span>
+          </a>
+          <a href="about.html" class="nav-link text-gray-600 hover:text-foresta transition-colors">
+            <span class="lang-it">Chi Siamo</span><span class="lang-en">About</span>
+          </a>
+          <a href="start.html" class="bg-foresta text-white px-5 py-2 rounded-full hover:bg-verde-800 transition-colors font-semibold">
+            <span class="lang-it">Inizia</span><span class="lang-en">Start</span>
+          </a>
+          <button class="lang-toggle-btn text-xs font-bold text-foresta border border-foresta rounded-full px-3 py-1 hover:bg-verde-50 transition-colors" aria-label="Switch language">EN</button>
+        </nav>
+        <!-- Mobile controls -->
+        <div class="flex md:hidden items-center gap-3">
+          <button class="lang-toggle-btn text-xs font-bold text-foresta border border-foresta rounded-full px-2 py-1 hover:bg-verde-50 transition-colors" aria-label="Switch language">EN</button>
+          <button id="mobile-menu-btn" aria-label="Apri menu" aria-expanded="false">
+            <i data-lucide="menu" class="w-6 h-6" style="color:#2d6a4f"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-verde-100 px-4 py-4 flex flex-col gap-1 text-sm font-medium shadow-lg">
+      <a href="projects.html" class="mobile-nav-link text-gray-700 hover:text-foresta hover:bg-verde-50 rounded-lg px-3 py-2.5 transition-colors">
+        <span class="lang-it">Progetti</span><span class="lang-en">Projects</span>
+      </a>
+      <a href="#come-funziona" class="mobile-nav-link text-gray-700 hover:text-foresta hover:bg-verde-50 rounded-lg px-3 py-2.5 transition-colors">
+        <span class="lang-it">Come Funziona</span><span class="lang-en">How It Works</span>
+      </a>
+      <a href="about.html" class="mobile-nav-link text-gray-700 hover:text-foresta hover:bg-verde-50 rounded-lg px-3 py-2.5 transition-colors">
+        <span class="lang-it">Chi Siamo</span><span class="lang-en">About</span>
+      </a>
+      <a href="start.html" class="mobile-nav-link mt-2 bg-foresta text-white px-4 py-2.5 rounded-full text-center font-semibold hover:bg-verde-800 transition-colors">
+        <span class="lang-it">Inizia un Progetto</span><span class="lang-en">Start a Project</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-verde-900 via-foresta to-verde-700 text-white py-24 md:py-36">
+    <!-- Decorative blobs -->
+    <div class="absolute inset-0 pointer-events-none opacity-20">
+      <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full" style="background:radial-gradient(circle,#74c69d,transparent)"></div>
+      <div class="absolute bottom-0 -left-16 w-72 h-72 rounded-full" style="background:radial-gradient(circle,#52b788,transparent)"></div>
+    </div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block bg-menta/20 border border-menta/40 text-menta text-sm font-semibold px-4 py-1.5 rounded-full mb-6 animate-fade-in-up">
+        <span class="lang-it">Civic Tech per la città verde 🌱</span>
+        <span class="lang-en">Civic Tech for a greener city 🌱</span>
+      </span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-up" style="animation-delay:0.1s">
+        <span class="lang-it">Rendiamo le nostre città<br class="hidden sm:block" /> più verdi, insieme.</span>
+        <span class="lang-en">Let's make our cities<br class="hidden sm:block" /> greener, together.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-verde-200 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style="animation-delay:0.2s">
+        <span class="lang-it">Crea un progetto di sostenibilità urbana, trova volontari, monitora i progressi. Dalle aiuole agli orti comunitari — l'azione parte da te.</span>
+        <span class="lang-en">Create an urban sustainability project, find volunteers, track progress. From flower beds to community gardens — action starts with you.</span>
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay:0.3s">
+        <a href="projects.html" class="inline-flex items-center justify-center gap-2 bg-white text-foresta font-bold px-8 py-3.5 rounded-full hover:bg-verde-50 transition-colors shadow-lg text-base">
+          <i data-lucide="search" class="w-5 h-5"></i>
+          <span class="lang-it">Esplora Progetti</span><span class="lang-en">Explore Projects</span>
+        </a>
+        <a href="start.html" class="inline-flex items-center justify-center gap-2 bg-menta text-verde-950 font-bold px-8 py-3.5 rounded-full hover:bg-verde-300 transition-colors shadow-lg text-base">
+          <i data-lucide="plus-circle" class="w-5 h-5"></i>
+          <span class="lang-it">Inizia un Progetto</span><span class="lang-en">Start a Project</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAR ===== -->
+  <section class="bg-white border-b border-verde-100">
+    <div class="max-w-4xl mx-auto px-4 py-8 grid grid-cols-3 divide-x divide-verde-100 text-center">
+      <div class="px-4">
+        <div class="text-3xl font-extrabold text-foresta">12</div>
+        <div class="text-sm text-gray-500 mt-1">
+          <span class="lang-it">Progetti Attivi</span><span class="lang-en">Active Projects</span>
+        </div>
+      </div>
+      <div class="px-4">
+        <div class="text-3xl font-extrabold text-foresta">5</div>
+        <div class="text-sm text-gray-500 mt-1">
+          <span class="lang-it">Città</span><span class="lang-en">Cities</span>
+        </div>
+      </div>
+      <div class="px-4">
+        <div class="text-3xl font-extrabold text-foresta">140</div>
+        <div class="text-sm text-gray-500 mt-1">
+          <span class="lang-it">Volontari</span><span class="lang-en">Volunteers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COME FUNZIONA ===== -->
+  <section id="come-funziona" class="py-20 bg-verde-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-foresta mb-4">
+          <span class="lang-it">Come Funziona</span>
+          <span class="lang-en">How It Works</span>
+        </h2>
+        <p class="text-gray-500 text-lg max-w-xl mx-auto">
+          <span class="lang-it">Tre semplici passi per trasformare un'idea in azione concreta sul territorio.</span>
+          <span class="lang-en">Three simple steps to turn an idea into concrete action on the ground.</span>
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-verde-100 hover:shadow-md transition-shadow">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5" style="background:#dcfce7">
+            <i data-lucide="file-plus" class="w-8 h-8" style="color:#2d6a4f"></i>
+          </div>
+          <div class="text-xs font-bold uppercase tracking-widest text-menta mb-2">Step 1</div>
+          <h3 class="text-xl font-bold text-foresta mb-3">
+            <span class="lang-it">Crea il tuo progetto</span>
+            <span class="lang-en">Create your project</span>
+          </h3>
+          <p class="text-gray-500 leading-relaxed">
+            <span class="lang-it">Descrivi la tua idea, indica la zona della città e scegli la categoria. Bastano pochi minuti per aprire un progetto.</span>
+            <span class="lang-en">Describe your idea, specify the area of the city and choose a category. It only takes a few minutes to open a project.</span>
+          </p>
+        </div>
+        <!-- Step 2 -->
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-verde-100 hover:shadow-md transition-shadow">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5" style="background:#dcfce7">
+            <i data-lucide="users" class="w-8 h-8" style="color:#2d6a4f"></i>
+          </div>
+          <div class="text-xs font-bold uppercase tracking-widest text-menta mb-2">Step 2</div>
+          <h3 class="text-xl font-bold text-foresta mb-3">
+            <span class="lang-it">Trova volontari</span>
+            <span class="lang-en">Find volunteers</span>
+          </h3>
+          <p class="text-gray-500 leading-relaxed">
+            <span class="lang-it">Pubblica il progetto e coinvolgi i tuoi vicini, amici e chiunque voglia fare qualcosa di concreto per la propria città.</span>
+            <span class="lang-en">Publish the project and involve your neighbours, friends and anyone who wants to do something concrete for their city.</span>
+          </p>
+        </div>
+        <!-- Step 3 -->
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-verde-100 hover:shadow-md transition-shadow">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5" style="background:#dcfce7">
+            <i data-lucide="map-pin" class="w-8 h-8" style="color:#2d6a4f"></i>
+          </div>
+          <div class="text-xs font-bold uppercase tracking-widest text-menta mb-2">Step 3</div>
+          <h3 class="text-xl font-bold text-foresta mb-3">
+            <span class="lang-it">Agisci sul territorio</span>
+            <span class="lang-en">Act on the ground</span>
+          </h3>
+          <p class="text-gray-500 leading-relaxed">
+            <span class="lang-it">Organizza gli incontri, aggiorna i progressi e documenta ogni traguardo. La città cambia grazie alle persone che ci vivono.</span>
+            <span class="lang-en">Organise meetings, update progress and document every milestone. The city changes thanks to the people who live in it.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED PROJECTS ===== -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-foresta mb-2">
+            <span class="lang-it">Progetti in Evidenza</span>
+            <span class="lang-en">Featured Projects</span>
+          </h2>
+          <p class="text-gray-500">
+            <span class="lang-it">Alcune delle iniziative attive sul territorio.</span>
+            <span class="lang-en">Some of the active initiatives on the ground.</span>
+          </p>
+        </div>
+        <a href="projects.html" class="inline-flex items-center gap-2 text-foresta font-semibold hover:underline text-sm whitespace-nowrap">
+          <span class="lang-it">Vedi tutti i progetti</span><span class="lang-en">See all projects</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+      <div id="featured-projects" class="grid md:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="py-20 bg-gradient-to-r from-foresta to-verde-700 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
+        <span class="lang-it">Hai un'idea? Apri un progetto oggi.</span>
+        <span class="lang-en">Have an idea? Open a project today.</span>
+      </h2>
+      <p class="text-verde-200 text-lg mb-8 max-w-xl mx-auto">
+        <span class="lang-it">Non servono permessi né burocrazia. Scrivi la tua idea, trova chi condivide la tua visione e inizia a costruire una città più verde.</span>
+        <span class="lang-en">No permits or bureaucracy needed. Write your idea, find people who share your vision and start building a greener city.</span>
+      </p>
+      <a href="start.html" class="inline-flex items-center gap-2 bg-white text-foresta font-bold px-8 py-3.5 rounded-full hover:bg-verde-50 transition-colors shadow-lg text-base">
+        <i data-lucide="seedling" class="w-5 h-5"></i>
+        <span class="lang-it">Inizia ora — è gratuito</span>
+        <span class="lang-en">Start now — it's free</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-dark text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8 mb-10">
+        <!-- Brand -->
+        <div>
+          <div class="text-xl font-extrabold text-menta mb-3">🌿 MakeNapoliGreen</div>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            <span class="lang-it">Piattaforma civica per la sostenibilità urbana nelle città della Campania e oltre.</span>
+            <span class="lang-en">Civic platform for urban sustainability in Campania cities and beyond.</span>
+          </p>
+        </div>
+        <!-- Nav -->
+        <div>
+          <h3 class="font-semibold text-gray-300 mb-4 uppercase text-xs tracking-widest">
+            <span class="lang-it">Navigazione</span><span class="lang-en">Navigation</span>
+          </h3>
+          <nav class="flex flex-col gap-2 text-sm text-gray-400">
+            <a href="projects.html" class="hover:text-menta transition-colors">
+              <span class="lang-it">Progetti</span><span class="lang-en">Projects</span>
+            </a>
+            <a href="start.html" class="hover:text-menta transition-colors">
+              <span class="lang-it">Inizia un Progetto</span><span class="lang-en">Start a Project</span>
+            </a>
+            <a href="about.html" class="hover:text-menta transition-colors">
+              <span class="lang-it">Chi Siamo</span><span class="lang-en">About</span>
+            </a>
+          </nav>
+        </div>
+        <!-- Contact -->
+        <div>
+          <h3 class="font-semibold text-gray-300 mb-4 uppercase text-xs tracking-widest">
+            <span class="lang-it">Contatti</span><span class="lang-en">Contact</span>
+          </h3>
+          <p class="text-sm text-gray-400">
+            <span class="lang-it">Vuoi collaborare o segnalare un problema?</span>
+            <span class="lang-en">Want to collaborate or report an issue?</span>
+          </p>
+          <a href="start.html" class="inline-block mt-3 text-sm text-menta hover:underline font-medium">
+            <span class="lang-it">Scrivici →</span><span class="lang-en">Write to us →</span>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <span>© 2026 MakeNapoliGreen. <span class="lang-it">Tutti i diritti riservati.</span><span class="lang-en">All rights reserved.</span></span>
+        <a href="about.html#disclaimer" class="hover:text-gray-300 transition-colors">
+          <span class="lang-it">Disclaimer legale</span><span class="lang-en">Legal disclaimer</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 w-11 h-11 rounded-full shadow-lg flex items-center justify-center z-30" style="background:#2d6a4f;color:#fff;" aria-label="Torna in cima">
+    <i data-lucide="chevron-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="projects.js"></script>
+  <script src="cookie-banner.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Render featured projects (first 3)
+    (function () {
+      const lang = (function(){ try { return localStorage.getItem('mng_lang') || 'it'; } catch(e){ return 'it'; } })();
+      const container = document.getElementById('featured-projects');
+      if (!container || typeof projects === 'undefined') return;
+
+      const statusClass = { 'Attivo': 'badge-attivo', 'Idea': 'badge-idea', 'Completato': 'badge-completato' };
+      const statusLabel = { 'Attivo': ['Attivo','Active'], 'Idea': ['Idea','Idea'], 'Completato': ['Completato','Completed'] };
+      const catClass = { 'Aiuola': 'tag-aiuola', 'Orto Urbano': 'tag-orto', 'Pulizia': 'tag-pulizia', 'Piantumazione': 'tag-piantumazione', 'Altro': 'tag-altro' };
+
+      projects.slice(0, 3).forEach(p => {
+        const card = document.createElement('a');
+        card.href = 'project.html?id=' + p.id;
+        card.className = 'project-card block bg-white rounded-2xl overflow-hidden shadow-sm border border-verde-100 group';
+        card.innerHTML = `
+          <div class="overflow-hidden h-48">
+            <img src="${p.img}" alt="${p.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3 flex-wrap">
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full ${statusClass[p.status] || 'badge-idea'}">
+                <span class="lang-it">${statusLabel[p.status][0]}</span><span class="lang-en">${statusLabel[p.status][1]}</span>
+              </span>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-full ${catClass[p.category] || 'tag-altro'}">${p.category}</span>
+            </div>
+            <h3 class="font-bold text-foresta text-lg mb-1">
+              <span class="lang-it">${p.title}</span><span class="lang-en">${p.titleEn}</span>
+            </h3>
+            <p class="text-xs text-gray-400 mb-2 flex items-center gap-1">
+              <i data-lucide="map-pin" class="w-3 h-3"></i> ${p.location}
+            </p>
+            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
+              <span class="lang-it">${p.description}</span><span class="lang-en">${p.descriptionEn}</span>
+            </p>
+            <div class="flex items-center justify-between text-xs text-gray-400">
+              <span class="flex items-center gap-1">
+                <i data-lucide="users" class="w-3.5 h-3.5"></i> ${p.contributors} <span class="lang-it">volontari</span><span class="lang-en">volunteers</span>
+              </span>
+              <span class="text-foresta font-semibold group-hover:underline">
+                <span class="lang-it">Vedi Progetto →</span><span class="lang-en">View Project →</span>
+              </span>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      // Re-apply language after render
+      if (typeof applyLanguage !== 'undefined') applyLanguage(lang);
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    })();
+  </script>
+</body>
+</html>

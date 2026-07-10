@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi Siamo — MakeNapoliGreen</title>
+  <meta name="description" content="La missione di MakeNapoliGreen: piattaforma civica per la sostenibilità urbana a Napoli e in Campania." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'verde': { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#15803d',800:'#166534',900:'#14532d',950:'#052e16' },
+            'terra':  { 50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f',950:'#451a03' },
+            'foresta': '#2d6a4f',
+            'menta':   '#74c69d',
+            'dark':    '#1b1b1b',
+          },
+          fontFamily: { sans: ['Inter','sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-verde-50 font-sans text-dark antialiased">
+
+  <!-- ===== HEADER ===== -->
+  <header id="main-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-verde-100 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2 font-extrabold text-xl text-foresta hover:opacity-80 transition-opacity">
+          🌿 <span>MakeNapoliGreen</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+          <a href="projects.html" class="nav-link text-gray-600 hover:text-foresta transition-colors">
+            <span class="lang-it">Progetti</span><span class="lang-en">Projects</span>
+          </a>
+          <a href="index.html#come-funziona" class="nav-link text-gray-600 hover:text-foresta transition-colors">
+            <span class="lang-it">Come Funziona</span><span class="lang-en">How It Works</span>
+          </a>
+          <a href="about.html" class="nav-link text-foresta font-semibold border-b-2 border-foresta pb-0.5">
+            <span class="lang-it">Chi Siamo</span><span class="lang-en">About</span>
+          </a>
+          <a href="start.html" class="bg-foresta text-white px-5 py-2 rounded-full hover:bg-verde-800 transition-colors font-semibold">
+            <span class="lang-it">Inizia</span><span class="lang-en">Start</span>
+          </a>
+          <button class="lang-toggle-btn text-xs font-bold text-foresta border border-foresta rounded-full px-3 py-1 hover:bg-verde-50 transition-colors">EN</button>
+        </nav>
+        <div class="flex md:hidden items-center gap-3">
+          <button class="lang-toggle-btn text-xs font-bold text-foresta border border-foresta rounded-full px-2 py-1">EN</button>
+          <button id="mobile-menu-btn" aria-label="Apri menu" aria-expanded="false">
+            <i data-lucide="menu" class="w-6 h-6" style="color:#2d6a4f"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-verde-100 px-4 py-4 flex flex-col gap-1 text-sm font-medium shadow-lg">
+      <a href="projects.html" class="mobile-nav-link text-gray-700 hover:text-foresta hover:bg-verde-50 rounded-lg px-3 py-2.5 transition-colors">
+        <span class="lang-it">Progetti</span><span class="lang-en">Projects</span>
+      </a>
+      <a href="index.html#come-funziona" class="mobile-nav-link text-gray-700 hover:text-foresta hover:bg-verde-50 rounded-lg px-3 py-2.5 transition-colors">
+        <span class="lang-it">Come Funziona</span><span class="lang-en">How It Works</span>
+      </a>
+      <a href="about.html" class="mobile-nav-link text-foresta font-semibold hover:bg-verde-50 rounded-lg px-3 py-2.5">
+        <span class="lang-it">Chi Siamo</span><span class="lang-en">About</span>
+      </a>
+      <a href="start.html" class="mobile-nav-link mt-2 bg-foresta text-white px-4 py-2.5 rounded-full text-center font-semibold hover:bg-verde-800 transition-colors">
+        <span class="lang-it">Inizia un Progetto</span><span class="lang-en">Start a Project</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="bg-gradient-to-br from-verde-900 to-foresta text-white py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-3xl md:text-5xl font-extrabold mb-4">
+        <span class="lang-it">Chi Siamo</span>
+        <span class="lang-en">About Us</span>
+      </h1>
+      <p class="text-verde-200 text-lg max-w-xl mx-auto">
+        <span class="lang-it">Crediamo che le città più verdi nascano dal basso — da persone che decidono di agire nel loro quartiere.</span>
+        <span class="lang-en">We believe greener cities are built from the ground up — by people who decide to act in their neighbourhood.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== MISSION ===== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#dcfce7">
+          <i data-lucide="target" class="w-5 h-5" style="color:#2d6a4f"></i>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-foresta">
+          <span class="lang-it">La nostra missione</span>
+          <span class="lang-en">Our mission</span>
+        </h2>
+      </div>
+      <div class="prose max-w-none text-gray-600 space-y-4 leading-relaxed">
+        <p>
+          <span class="lang-it"><strong class="text-dark">MakeNapoliGreen</strong> è una piattaforma civica digitale nata per facilitare l'organizzazione di progetti di sostenibilità urbana nelle città della Campania. Crediamo che ogni cittadino abbia il potere di migliorare il proprio quartiere: bastano un'idea, un gruppo di persone motivate e gli strumenti giusti per coordinarsi.</span>
+          <span class="lang-en"><strong class="text-dark">MakeNapoliGreen</strong> is a digital civic platform created to facilitate the organisation of urban sustainability projects in cities across Campania. We believe every citizen has the power to improve their neighbourhood: all it takes is an idea, a group of motivated people and the right tools to coordinate.</span>
+        </p>
+        <p>
+          <span class="lang-it">La nostra visione è una Napoli — e più in generale una Campania — dove gli spazi urbani abbandonati diventano orti fiorenti, dove i marciapiedi si riempiono di alberi, dove le spiagge vengono ripulite dai cittadini che le amano. Non per campagna elettorale, ma per amore del luogo in cui si vive.</span>
+          <span class="lang-en">Our vision is a Naples — and more broadly a Campania — where abandoned urban spaces become thriving gardens, where pavements fill with trees, where beaches are cleaned by the citizens who love them. Not for electoral campaigns, but out of love for the place where you live.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NOT PETITIONS ===== -->
+  <section class="py-16 bg-verde-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#dcfce7">
+          <i data-lucide="zap" class="w-5 h-5" style="color:#2d6a4f"></i>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-foresta">
+          <span class="lang-it">Non siamo una piattaforma di petizioni</span>
+          <span class="lang-en">We are not a petition platform</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- What we're not -->
+        <div class="bg-red-50 border border-red-100 rounded-2xl p-6">
+          <h3 class="font-bold text-red-700 mb-4 flex items-center gap-2">
+            <i data-lucide="x-circle" class="w-5 h-5"></i>
+            <span class="lang-it">Le petizioni</span><span class="lang-en">Petitions</span>
+          </h3>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <i data-lucide="minus" class="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5"></i>
+              <span class="lang-it">Raccolgono firme, ma spesso non producono cambiamenti concreti</span>
+              <span class="lang-en">Collect signatures, but often produce no concrete change</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="minus" class="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5"></i>
+              <span class="lang-it">Delegano l'azione alle istituzioni</span>
+              <span class="lang-en">Delegate action to institutions</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="minus" class="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5"></i>
+              <span class="lang-it">Creano il senso di "aver fatto qualcosa" senza agire davvero</span>
+              <span class="lang-en">Create the feeling of "having done something" without really acting</span>
+            </li>
+          </ul>
+        </div>
+        <!-- What we are -->
+        <div class="bg-verde-50 border border-verde-200 rounded-2xl p-6">
+          <h3 class="font-bold text-foresta mb-4 flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-5 h-5"></i>
+            <span class="lang-it">MakeNapoliGreen</span><span class="lang-en">MakeNapoliGreen</span>
+          </h3>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-foresta flex-shrink-0 mt-0.5"></i>
+              <span class="lang-it">Organizza azioni concrete sul territorio</span>
+              <span class="lang-en">Organises concrete actions on the ground</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-foresta flex-shrink-0 mt-0.5"></i>
+              <span class="lang-it">Mette in contatto chi ha idee con chi vuole agire</span>
+              <span class="lang-en">Connects people with ideas to those who want to act</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-foresta flex-shrink-0 mt-0.5"></i>
+              <span class="lang-it">Documenta i progressi e celebra i risultati</span>
+              <span class="lang-en">Documents progress and celebrates results</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM ===== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-10">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#dcfce7">
+          <i data-lucide="users" class="w-5 h-5" style="color:#2d6a4f"></i>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-foresta">
+          <span class="lang-it">Il team</span>
+          <span class="lang-en">The team</span>
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <!-- Founder 1 -->
+        <div class="bg-verde-50 rounded-2xl p-6 flex items-start gap-4 border border-verde-100">
+          <div class="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0" style="background:#2d6a4f">A</div>
+          <div>
+            <div class="font-bold text-foresta">Andrea M.</div>
+            <div class="text-sm text-terra-700 font-medium mb-2">
+              <span class="lang-it">Co-fondatore</span><span class="lang-en">Co-founder</span>
+            </div>
+            <p class="text-xs text-gray-500">
+              <span class="lang-it">Urbanista e attivista civico, Napoli. Appassionato di spazi pubblici e mobilità sostenibile.</span>
+              <span class="lang-en">Urban planner and civic activist, Naples. Passionate about public spaces and sustainable mobility.</span>
+            </p>
+          </div>
+        </div>
+        <!-- Founder 2 -->
+        <div class="bg-verde-50 rounded-2xl p-6 flex items-start gap-4 border border-verde-100">
+          <div class="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0" style="background:#52b788">C</div>
+          <div>
+            <div class="font-bold text-foresta">Chiara L.</div>
+            <div class="text-sm text-terra-700 font-medium mb-2">
+              <span class="lang-it">Co-fondatrice</span><span class="lang-en">Co-founder</span>
+            </div>
+            <p class="text-xs text-gray-500">
+              <span class="lang-it">Agronoma e ricercatrice, Caserta. Specializzata in orti urbani e agricoltura periurbana.</span>
+              <span class="lang-en">Agronomist and researcher, Caserta. Specialised in urban gardens and peri-urban agriculture.</span>
+            </p>
+          </div>
+        </div>
+        <!-- Contributor -->
+        <div class="bg-verde-50 rounded-2xl p-6 flex items-start gap-4 border border-verde-100">
+          <div class="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0" style="background:#74c69d;color:#14532d">M</div>
+          <div>
+            <div class="font-bold text-foresta">Marco T.</div>
+            <div class="text-sm text-terra-700 font-medium mb-2">
+              <span class="lang-it">Sviluppatore</span><span class="lang-en">Developer</span>
+            </div>
+            <p class="text-xs text-gray-500">
+              <span class="lang-it">Web developer, Salerno. Costruisce strumenti digitali per la comunità civica.</span>
+              <span class="lang-en">Web developer, Salerno. Building digital tools for the civic community.</span>
+            </p>
+          </div>
+        </div>
+        <!-- Join -->
+        <div class="bg-foresta text-white rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(116,198,157,0.2)">
+            <i data-lucide="user-plus" class="w-6 h-6 text-menta"></i>
+          </div>
+          <div>
+            <div class="font-bold text-menta mb-1">
+              <span class="lang-it">Unisciti al team</span><span class="lang-en">Join the team</span>
+            </div>
+            <p class="text-xs text-verde-200 mb-3">
+              <span class="lang-it">Cerchiamo volontari con competenze in comunicazione, design, sviluppo o organizzazione di eventi.</span>
+              <span class="lang-en">We're looking for volunteers with skills in communication, design, development or event organisation.</span>
+            </p>
+            <a href="start.html" class="text-xs font-bold text-menta hover:text-white transition-colors">
+              <span class="lang-it">Scrivici →</span><span class="lang-en">Write to us →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DISCLAIMER ===== -->
+  <section id="disclaimer" class="py-16 bg-terra-50 border-t border-terra-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#fde68a">
+          <i data-lucide="scale" class="w-5 h-5" style="color:#92400e"></i>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-terra-800">
+          <span class="lang-it">Disclaimer legale</span>
+          <span class="lang-en">Legal disclaimer</span>
+        </h2>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 md:p-8 border border-terra-200 shadow-sm space-y-4 text-sm text-gray-600 leading-relaxed">
+        <p>
+          <span class="lang-it"><strong class="text-dark">MakeNapoliGreen è una piattaforma per l'organizzazione civica informale.</strong> Non siamo un ente giuridico registrato, un'associazione riconosciuta, né una onlus.</span>
+          <span class="lang-en"><strong class="text-dark">MakeNapoliGreen is a platform for informal civic organisation.</strong> We are not a registered legal entity, a recognised association, or a non-profit organisation.</span>
+        </p>
+        <p>
+          <span class="lang-it">La piattaforma fornisce strumenti di coordinamento per cittadini che desiderano organizzarsi autonomamente. Non garantiamo, supervisioniamo né siamo responsabili delle attività svolte dai singoli progetti o dai loro partecipanti.</span>
+          <span class="lang-en">The platform provides coordination tools for citizens who wish to organise independently. We do not guarantee, supervise or take responsibility for the activities carried out by individual projects or their participants.</span>
+        </p>
+        <p>
+          <span class="lang-it">Chiunque utilizzi questa piattaforma per organizzare attività sul territorio è responsabile del rispetto delle normative vigenti (autorizzazioni comunali, sicurezza, proprietà privata, ecc.). Vi invitiamo a verificare preventivamente le autorizzazioni necessarie con i Comuni e gli enti competenti.</span>
+          <span class="lang-en">Anyone who uses this platform to organise activities on the ground is responsible for complying with applicable regulations (municipal authorisations, safety, private property, etc.). We invite you to check in advance with municipalities and competent authorities for any required permissions.</span>
+        </p>
+        <p>
+          <span class="lang-it">I dati personali inseriti nei form vengono trattati esclusivamente per coordinare le attività di progetto. Non vengono venduti né ceduti a terzi.</span>
+          <span class="lang-en">Personal data entered in the forms is processed exclusively to coordinate project activities. It is not sold or transferred to third parties.</span>
+        </p>
+        <div class="mt-4 p-4 bg-terra-50 rounded-xl border border-terra-100">
+          <p class="text-terra-800 font-medium">
+            <span class="lang-it">Per qualsiasi domanda o chiarimento, usa il <a href="start.html" class="underline hover:text-terra-900">modulo di contatto</a>.</span>
+            <span class="lang-en">For any questions or clarifications, use our <a href="start.html" class="underline hover:text-terra-900">contact form</a>.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="py-14 bg-gradient-to-r from-foresta to-verde-700 text-white">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-3">
+        <span class="lang-it">Pronto a fare la differenza?</span>
+        <span class="lang-en">Ready to make a difference?</span>
+      </h2>
+      <p class="text-verde-200 mb-6">
+        <span class="lang-it">Il momento migliore per piantare un albero era vent'anni fa. Il secondo momento migliore è adesso.</span>
+        <span class="lang-en">The best time to plant a tree was twenty years ago. The second best time is now.</span>
+      </p>
+      <a href="start.html" class="inline-flex items-center gap-2 bg-white text-foresta font-bold px-7 py-3 rounded-full hover:bg-verde-50 transition-colors shadow">
+        <i data-lucide="seedling" class="w-5 h-5"></i>
+        <span class="lang-it">Inizia un Progetto</span><span class="lang-en">Start a Project</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-dark text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8 mb-10">
+        <div>
+          <div class="text-xl font-extrabold text-menta mb-3">🌿 MakeNapoliGreen</div>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            <span class="lang-it">Piattaforma civica per la sostenibilità urbana nelle città della Campania e oltre.</span>
+            <span class="lang-en">Civic platform for urban sustainability in Campania cities and beyond.</span>
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-300 mb-4 uppercase text-xs tracking-widest">
+            <span class="lang-it">Navigazione</span><span class="lang-en">Navigation</span>
+          </h3>
+          <nav class="flex flex-col gap-2 text-sm text-gray-400">
+            <a href="projects.html" class="hover:text-menta transition-colors"><span class="lang-it">Progetti</span><span class="lang-en">Projects</span></a>
+            <a href="start.html" class="hover:text-menta transition-colors"><span class="lang-it">Inizia un Progetto</span><span class="lang-en">Start a Project</span></a>
+            <a href="about.html" class="hover:text-menta transition-colors"><span class="lang-it">Chi Siamo</span><span class="lang-en">About</span></a>
+          </nav>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-300 mb-4 uppercase text-xs tracking-widest">
+            <span class="lang-it">Legale</span><span class="lang-en">Legal</span>
+          </h3>
+          <nav class="flex flex-col gap-2 text-sm text-gray-400">
+            <a href="#disclaimer" class="hover:text-menta transition-colors"><span class="lang-it">Disclaimer</span><span class="lang-en">Disclaimer</span></a>
+          </nav>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <span>© 2026 MakeNapoliGreen. <span class="lang-it">Tutti i diritti riservati.</span><span class="lang-en">All rights reserved.</span></span>
+        <a href="#disclaimer" class="hover:text-gray-300 transition-colors"><span class="lang-it">Disclaimer legale</span><span class="lang-en">Legal disclaimer</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 w-11 h-11 rounded-full shadow-lg flex items-center justify-center z-30" style="background:#2d6a4f;color:#fff;" aria-label="Torna in cima">
+    <i data-lucide="chevron-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="cookie-banner.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
