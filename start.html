@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inizia un Progetto — MakeNapoliGreen</title>
+  <meta name="description" content="Avvia un nuovo progetto di sostenibilità urbana o contribuisci a uno esistente su MakeNapoliGreen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'verde': { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#15803d',800:'#166534',900:'#14532d',950:'#052e16' },
+            'terra':  { 50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f',950:'#451a03' },
+            'foresta': '#2d6a4f',
+            'menta':   '#74c69d',
+            'dark':    '#1b1b1b',
+          },
+          fontFamily: { sans: ['Inter','sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-verde-50 font-sans text-dark antialiased">
+
+  <!-- ===== HEADER ===== -->
+  <header id="main-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-verde-100 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2 font-extrabold text-xl text-foresta hover:opacity-80 transition-opacity">
+          🌿 <span>MakeNapoliGreen</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+          <a href="projects.html" class="nav-link text-gray-600 hover:text-foresta transition-colors">
+            <span class="lang-it">Progetti</span><span class="lang-en">Projects</span>
+          </a>
+          <a href="index.html#come-funziona" class="nav-link text-gray-600 hover:text-foresta transition-colors">
+            <span class="lang-it">Come Funziona</span><span class="lang-en">How It Works</span>
+          </a>
+          <a href="about.html" class="nav-link text-gray-600 hover:text-foresta transition-colors">
+            <span class="lang-it">Chi Siamo</span><span class="lang-en">About</span>
+          </a>
+          <a href="start.html" class="bg-foresta text-white px-5 py-2 rounded-full hover:bg-verde-800 transition-colors font-semibold">
+            <span class="lang-it">Inizia</span><span class="lang-en">Start</span>
+          </a>
+          <button class="lang-toggle-btn text-xs font-bold text-foresta border border-foresta rounded-full px-3 py-1 hover:bg-verde-50 transition-colors">EN</button>
+        </nav>
+        <div class="flex md:hidden items-center gap-3">
+          <button class="lang-toggle-btn text-xs font-bold text-foresta border border-foresta rounded-full px-2 py-1">EN</button>
+          <button id="mobile-menu-btn" aria-label="Apri menu" aria-expanded="false">
+            <i data-lucide="menu" class="w-6 h-6" style="color:#2d6a4f"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-verde-100 px-4 py-4 flex flex-col gap-1 text-sm font-medium shadow-lg">
+      <a href="projects.html" class="mobile-nav-link text-gray-700 hover:text-foresta hover:bg-verde-50 rounded-lg px-3 py-2.5 transition-colors">
+        <span class="lang-it">Progetti</span><span class="lang-en">Projects</span>
+      </a>
+      <a href="index.html#come-funziona" class="mobile-nav-link text-gray-700 hover:text-foresta hover:bg-verde-50 rounded-lg px-3 py-2.5 transition-colors">
+        <span class="lang-it">Come Funziona</span><span class="lang-en">How It Works</span>
+      </a>
+      <a href="about.html" class="mobile-nav-link text-gray-700 hover:text-foresta hover:bg-verde-50 rounded-lg px-3 py-2.5 transition-colors">
+        <span class="lang-it">Chi Siamo</span><span class="lang-en">About</span>
+      </a>
+      <a href="start.html" class="mobile-nav-link mt-2 bg-foresta text-white px-4 py-2.5 rounded-full text-center font-semibold hover:bg-verde-800 transition-colors">
+        <span class="lang-it">Inizia un Progetto</span><span class="lang-en">Start a Project</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <section class="bg-gradient-to-br from-verde-900 to-foresta text-white py-14">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5" style="background:rgba(116,198,157,0.2)">
+        <i data-lucide="seedling" class="w-8 h-8 text-menta"></i>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-3">
+        <span class="lang-it">Inizia un Progetto</span>
+        <span class="lang-en">Start a Project</span>
+      </h1>
+      <p class="text-verde-200 text-lg">
+        <span class="lang-it">Hai un'idea per rendere la tua città più verde? Raccontacela — o segnalaci che vuoi contribuire a un progetto esistente.</span>
+        <span class="lang-en">Have an idea to make your city greener? Tell us about it — or let us know you want to contribute to an existing project.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== FORM ===== -->
+  <main class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+
+    <!-- Contribute notice (shown if ?project= param present) -->
+    <div id="contribute-notice" class="hidden mb-6 p-4 bg-verde-100 border border-verde-200 rounded-xl flex items-start gap-3">
+      <i data-lucide="info" class="w-5 h-5 text-foresta flex-shrink-0 mt-0.5"></i>
+      <p class="text-sm text-verde-800">
+        <span class="lang-it">Stai inviando una richiesta per contribuire al progetto: <strong id="contributing-to-it"></strong></span>
+        <span class="lang-en">You're sending a request to contribute to the project: <strong id="contributing-to-en"></strong></span>
+      </p>
+    </div>
+
+    <!-- Success message -->
+    <div id="success-message" class="hidden bg-verde-50 border border-verde-200 rounded-2xl p-8 text-center">
+      <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style="background:#dcfce7">
+        <i data-lucide="check-circle" class="w-8 h-8" style="color:#2d6a4f"></i>
+      </div>
+      <h2 class="text-2xl font-bold text-foresta mb-2">
+        <span class="lang-it">Messaggio inviato! 🌱</span>
+        <span class="lang-en">Message sent! 🌱</span>
+      </h2>
+      <p class="text-gray-600 mb-6">
+        <span class="lang-it">Grazie per la tua iniziativa. Ti ricontatteremo al più presto per coordinarci.</span>
+        <span class="lang-en">Thank you for your initiative. We'll get back to you as soon as possible to coordinate.</span>
+      </p>
+      <a href="projects.html" class="inline-flex items-center gap-2 bg-foresta text-white px-6 py-3 rounded-full font-semibold hover:bg-verde-800 transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span class="lang-it">Torna ai Progetti</span>
+        <span class="lang-en">Back to Projects</span>
+      </a>
+    </div>
+
+    <!-- The Form -->
+    <form id="project-form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          class="bg-white rounded-2xl p-8 shadow-sm border border-verde-100 space-y-6"
+          novalidate>
+
+      <!-- TODO: add Web3Forms access_key -->
+      <input type="hidden" name="access_key" value="" />
+      <input type="hidden" name="subject" value="Nuovo progetto / contribuzione - MakeNapoliGreen" />
+      <input type="hidden" name="from_name" value="MakeNapoliGreen" />
+      <input type="hidden" name="redirect" value="false" />
+      <!-- Hidden: project id if contributing -->
+      <input type="hidden" name="project_ref" id="project-ref-field" value="" />
+
+      <!-- Nome -->
+      <div>
+        <label for="field-name" class="block text-sm font-semibold text-gray-700 mb-1.5">
+          <span class="lang-it">Il tuo nome <span class="text-red-500">*</span></span>
+          <span class="lang-en">Your name <span class="text-red-500">*</span></span>
+        </label>
+        <input type="text" id="field-name" name="name" required autocomplete="name"
+               class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-verde-50 focus:bg-white transition-colors"
+               placeholder="Mario Rossi" />
+      </div>
+
+      <!-- Tipo di richiesta -->
+      <div>
+        <fieldset>
+          <legend class="block text-sm font-semibold text-gray-700 mb-2">
+            <span class="lang-it">Tipo di richiesta <span class="text-red-500">*</span></span>
+            <span class="lang-en">Request type <span class="text-red-500">*</span></span>
+          </legend>
+          <div class="flex gap-4 flex-wrap">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="request_type" value="nuovo_progetto" id="type-new" checked class="accent-foresta" />
+              <span class="text-sm text-gray-700">
+                <span class="lang-it">Voglio avviare un nuovo progetto</span>
+                <span class="lang-en">I want to start a new project</span>
+              </span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="request_type" value="contribuire" id="type-contribute" class="accent-foresta" />
+              <span class="text-sm text-gray-700">
+                <span class="lang-it">Voglio contribuire a un progetto</span>
+                <span class="lang-en">I want to contribute to a project</span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Nome progetto / progetto a cui contribuire -->
+      <div>
+        <label for="field-project" class="block text-sm font-semibold text-gray-700 mb-1.5">
+          <span class="lang-it" id="project-label-it">Nome del Progetto <span class="text-red-500">*</span></span>
+          <span class="lang-en" id="project-label-en">Project Name <span class="text-red-500">*</span></span>
+        </label>
+        <input type="text" id="field-project" name="project_name" required
+               class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-verde-50 focus:bg-white transition-colors"
+               placeholder="es. Aiuola Bagnoli" />
+      </div>
+
+      <!-- Città -->
+      <div>
+        <label for="field-city" class="block text-sm font-semibold text-gray-700 mb-1.5">
+          <span class="lang-it">Città <span class="text-red-500">*</span></span>
+          <span class="lang-en">City <span class="text-red-500">*</span></span>
+        </label>
+        <input type="text" id="field-city" name="city" required autocomplete="address-level2"
+               class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-verde-50 focus:bg-white transition-colors"
+               placeholder="Napoli" />
+      </div>
+
+      <!-- Categoria -->
+      <div>
+        <label for="field-category" class="block text-sm font-semibold text-gray-700 mb-1.5">
+          <span class="lang-it">Categoria</span>
+          <span class="lang-en">Category</span>
+        </label>
+        <select id="field-category" name="category"
+                class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-verde-50 focus:bg-white transition-colors cursor-pointer">
+          <option value=""><span class="lang-it">Seleziona una categoria</span></option>
+          <option value="Aiuola">Aiuola</option>
+          <option value="Orto Urbano">Orto Urbano</option>
+          <option value="Pulizia">Pulizia</option>
+          <option value="Piantumazione">Piantumazione</option>
+          <option value="Altro">Altro</option>
+        </select>
+      </div>
+
+      <!-- Descrizione -->
+      <div>
+        <label for="field-description" class="block text-sm font-semibold text-gray-700 mb-1.5">
+          <span class="lang-it">Descrizione dell'idea <span class="text-red-500">*</span></span>
+          <span class="lang-en">Description of your idea <span class="text-red-500">*</span></span>
+        </label>
+        <textarea id="field-description" name="description" required rows="4"
+                  class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-verde-50 focus:bg-white transition-colors resize-none"
+                  placeholder="Descrivi brevemente il tuo progetto o come vorresti contribuire..."></textarea>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="field-email" class="block text-sm font-semibold text-gray-700 mb-1.5">
+          <span class="lang-it">Email <span class="text-red-500">*</span></span>
+          <span class="lang-en">Email <span class="text-red-500">*</span></span>
+        </label>
+        <input type="email" id="field-email" name="email" required autocomplete="email"
+               class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-verde-50 focus:bg-white transition-colors"
+               placeholder="mario.rossi@esempio.it" />
+      </div>
+
+      <!-- Messaggio aggiuntivo -->
+      <div>
+        <label for="field-message" class="block text-sm font-semibold text-gray-700 mb-1.5">
+          <span class="lang-it">Messaggio aggiuntivo</span>
+          <span class="lang-en">Additional message</span>
+        </label>
+        <textarea id="field-message" name="message" rows="3"
+                  class="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-verde-50 focus:bg-white transition-colors resize-none"
+                  placeholder="Aggiungi qualsiasi altra informazione utile..."></textarea>
+      </div>
+
+      <!-- Privacy note -->
+      <p class="text-xs text-gray-400">
+        <span class="lang-it">I tuoi dati verranno usati solo per coordinare il progetto e non saranno condivisi con terze parti.</span>
+        <span class="lang-en">Your data will only be used to coordinate the project and will not be shared with third parties.</span>
+      </p>
+
+      <!-- Error message -->
+      <div id="form-error" class="hidden p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700 flex items-center gap-2">
+        <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0"></i>
+        <span id="form-error-text"></span>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" id="submit-btn"
+              class="w-full flex items-center justify-center gap-2 bg-foresta text-white font-bold py-3.5 rounded-full hover:bg-verde-800 transition-colors text-base shadow">
+        <i data-lucide="send" class="w-5 h-5"></i>
+        <span class="lang-it">Invia la richiesta</span>
+        <span class="lang-en">Send request</span>
+      </button>
+    </form>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-dark text-white py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+      <span class="font-bold text-menta text-base">🌿 MakeNapoliGreen</span>
+      <nav class="flex gap-5">
+        <a href="projects.html" class="hover:text-white transition-colors"><span class="lang-it">Progetti</span><span class="lang-en">Projects</span></a>
+        <a href="about.html" class="hover:text-white transition-colors"><span class="lang-it">Chi Siamo</span><span class="lang-en">About</span></a>
+        <a href="start.html" class="hover:text-white transition-colors"><span class="lang-it">Inizia</span><span class="lang-en">Start</span></a>
+      </nav>
+      <span>© 2026 MakeNapoliGreen</span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="projects.js"></script>
+  <script src="cookie-banner.js"></script>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const projectId = params.get('project');
+      const lang = (function(){ try { return localStorage.getItem('mng_lang') || 'it'; } catch(e){ return 'it'; } })();
+
+      // Pre-fill if contributing to a project
+      if (projectId && typeof projects !== 'undefined') {
+        const proj = projects.find(p => p.id === projectId);
+        if (proj) {
+          document.getElementById('field-project').value = lang === 'it' ? proj.title : proj.titleEn;
+          document.getElementById('project-ref-field').value = proj.id;
+
+          // Switch to "contribute" radio
+          document.getElementById('type-contribute').checked = true;
+
+          // Show notice
+          const notice = document.getElementById('contribute-notice');
+          notice.classList.remove('hidden');
+          document.getElementById('contributing-to-it').textContent = proj.title;
+          document.getElementById('contributing-to-en').textContent = proj.titleEn;
+        }
+      }
+
+      // Form submission
+      const form = document.getElementById('project-form');
+      const successMsg = document.getElementById('success-message');
+      const errorDiv = document.getElementById('form-error');
+      const errorText = document.getElementById('form-error-text');
+      const submitBtn = document.getElementById('submit-btn');
+      const defaultBtnHTML = submitBtn.innerHTML;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        errorDiv.classList.add('hidden');
+
+        // Basic validation
+        const name = document.getElementById('field-name').value.trim();
+        const project = document.getElementById('field-project').value.trim();
+        const city = document.getElementById('field-city').value.trim();
+        const description = document.getElementById('field-description').value.trim();
+        const email = document.getElementById('field-email').value.trim();
+        const currentLang = (function(){ try { return localStorage.getItem('mng_lang') || 'it'; } catch(e){ return 'it'; } })();
+
+        if (!name || !project || !city || !description || !email) {
+          const msg = currentLang === 'it' ? 'Compila tutti i campi obbligatori.' : 'Please fill in all required fields.';
+          errorText.textContent = msg;
+          errorDiv.classList.remove('hidden');
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+          return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          const msg = currentLang === 'it' ? 'Inserisci un indirizzo email valido.' : 'Please enter a valid email address.';
+          errorText.textContent = msg;
+          errorDiv.classList.remove('hidden');
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+          return;
+        }
+
+        // Loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg class="animate-spin w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+          <span class="lang-it">Invio in corso...</span><span class="lang-en">Sending...</span>
+        `;
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+
+        try {
+          const formData = new FormData(form);
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+          const result = await response.json();
+
+          if (!response.ok || !result.success) {
+            // Web3Forms returns success:false when access_key is missing/invalid
+            // For the prototype (empty key), show success anyway for demo purposes
+            if (!document.getElementById('project-form').querySelector('[name="access_key"]').value) {
+              // Demo mode: show success
+              form.classList.add('hidden');
+              successMsg.classList.remove('hidden');
+              successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              return;
+            }
+            throw new Error(result.message || 'Invio non riuscito.');
+          }
+
+          form.classList.add('hidden');
+          successMsg.classList.remove('hidden');
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch (err) {
+          const currentLang2 = (function(){ try { return localStorage.getItem('mng_lang') || 'it'; } catch(e){ return 'it'; } })();
+          // If no access_key (prototype), show success
+          if (!document.getElementById('project-form').querySelector('[name="access_key"]').value) {
+            form.classList.add('hidden');
+            successMsg.classList.remove('hidden');
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            errorText.textContent = currentLang2 === 'it'
+              ? 'Errore durante l\'invio. Riprova tra poco.'
+              : 'Error sending message. Please try again.';
+            errorDiv.classList.remove('hidden');
+          }
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = defaultBtnHTML;
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
