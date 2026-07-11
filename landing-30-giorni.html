@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MakeNapoliGreen — i primi 30 giorni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --leaf-bright:#6fa050; --brick:#a3462e;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:'Inter',sans-serif;
+    background:#0f0e0d; color:#f3efe4;
+    transition: background-color 1s ease, color 1s ease;
+    overflow-x:hidden;
+  }
+  body[data-scene="2"]{ background:#3a4636; color:#f3efe4; }
+  body[data-scene="3"]{ background:#ede8da; color:#1c1b19; }
+  body[data-scene="4"]{ background:#f3efe4; color:#1c1b19; }
+
+  h1,h2{ font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+
+  section{
+    min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding: 40px 24px; position:relative;
+  }
+
+  /* scene 0 — the room */
+  .glow{
+    position:absolute; width:420px; height:420px; border-radius:50%;
+    background: radial-gradient(circle, rgba(111,160,80,0.16) 0%, rgba(111,160,80,0.05) 45%, transparent 70%);
+    top:50%; left:50%; transform:translate(-50%,-50%);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+  }
+  body[data-scene="1"] .glow, body[data-scene="2"] .glow, body[data-scene="3"] .glow, body[data-scene="4"] .glow{
+    opacity:0; transform:translate(-50%,-50%) scale(0.6);
+  }
+  .clock{ font-size:13px; color:#b9ac8c; margin-bottom:18px; letter-spacing:0.05em; }
+  h1.big{ font-size:44px; line-height:1.12; max-width:16ch; position:relative; z-index:1; }
+  .sub{ font-size:15.5px; color:#b9ac8c; margin-top:16px; max-width:34ch; position:relative; z-index:1; }
+  body[data-scene="3"] .sub, body[data-scene="4"] .sub{ color:#5c5a52; }
+  body[data-scene="2"] .sub{ color:#d6e0c8; }
+
+  .scroll-hint{ position:absolute; bottom:34px; font-size:11px; letter-spacing:0.08em; color:#8a8578; }
+
+  /* scene 3 — mission */
+  .eyebrow{ font-size:12px; letter-spacing:0.05em; color:var(--leaf-bright); margin-bottom:16px; }
+  .mission-body{ font-size:15.5px; color:#4a4636; max-width:44ch; margin-top:18px; line-height:1.7; }
+
+  /* scene 4 — outward */
+  .actions{ display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; justify-content:center; }
+  .btn{ font-weight:600; font-size:14.5px; padding:13px 22px; border-radius:8px; text-decoration:none; }
+  .btn-primary{ background:#1c1b19; color:#f3efe4; }
+  .btn-ghost{ border:1px solid rgba(28,27,25,0.2); color:#1c1b19; }
+</style>
+</head>
+<body data-scene="0">
+
+<div class="glow"></div>
+
+<section data-scene="0">
+  <div class="clock mono">23:41</div>
+  <h1 class="big">Un altro scroll.</h1>
+  <p class="sub">Ne hai fatti altri cento, oggi.</p>
+  <div class="scroll-hint mono">scorri ↓</div>
+</section>
+
+<section data-scene="1">
+  <h1 class="big">Fuori, qualcosa aspetta.</h1>
+  <p class="sub">A due isolati da qui c'è una piazza di basalto nero, senza un albero, che d'estate scotta.</p>
+</section>
+
+<section data-scene="2">
+  <h1 class="big" style="color:#f3efe4;">Non serve un'associazione.</h1>
+  <p class="sub">Serve solo aver notato qualcosa — e venti secondi per scriverlo.</p>
+</section>
+
+<section data-scene="3">
+  <div class="eyebrow mono">MAKENAPOLIGREEN · I PRIMI 30 GIORNI</div>
+  <h1 class="big" style="color:#1c1b19; font-size:36px;">Un tentativo, non una promessa.</h1>
+  <p class="mission-body">Per 30 giorni raccogliamo una cosa sola: dove Napoli ha più bisogno di ombra, vista da chi ci vive — soprattutto da chi di solito non viene ascoltato. Non è ancora un progetto definito. È la prima mappa onesta del problema, scritta da chi cammina quelle strade ogni giorno.</p>
+</section>
+
+<section data-scene="4">
+  <h1 class="big" style="color:#1c1b19; font-size:38px;">Il resto si scrive fuori.</h1>
+  <p class="sub">Guarda cosa è già stato segnalato vicino a te, o aggiungi la tua zona. Ci vogliono meno di due minuti.</p>
+  <div class="actions">
+    <a href="makenapoligreen-mockup.html#progetti" class="btn btn-primary">Vedi le zone già segnalate</a>
+    <a href="proponi.html" class="btn btn-ghost">Segnala la tua</a>
+  </div>
+</section>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const body = document.body;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && entry.intersectionRatio > 0.5){
+        body.setAttribute('data-scene', entry.target.dataset.scene);
+      }
+    });
+  }, { threshold: [0.5] });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

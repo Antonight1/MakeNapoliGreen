@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#0412 — Piazza Mercato · MakeNapoliGreen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --basalt: #1c1b19; --basalt-soft: #2a2825; --tufo: #d8cdb2; --tufo-dim: #b9ac8c;
+    --paper: #f3efe4; --leaf: #4f7a3d; --leaf-bright: #6fa050; --brick: #a3462e;
+    --line: rgba(243,239,228,0.14); --line-dark: rgba(28,27,25,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ background: var(--paper); color: var(--basalt); font-family:'Inter',sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; }
+  a{ color:inherit; }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  .wrap{ max-width: 980px; margin:0 auto; padding: 0 32px; }
+  nav{ position:sticky; top:0; z-index:50; background:var(--basalt); color:var(--paper); border-bottom:1px solid var(--line); }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:'Fraunces', serif; font-weight:600; font-size:19px; text-decoration:none; color:var(--paper); }
+  .brand .dot{ width:9px; height:9px; border-radius:50%; background:var(--leaf-bright); box-shadow:0 0 0 3px rgba(111,160,80,0.25); }
+  .back{ font-size:13.5px; color:var(--tufo-dim); text-decoration:none; }
+  .back:hover{ color:var(--paper); }
+
+  .issue-header{ padding: 44px 0 28px; border-bottom:1px solid var(--line-dark); }
+  .issue-tag{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:#8a8578; margin-bottom:10px; }
+  .issue-tag .num{ color:var(--brick); }
+  h1.title{ font-size:32px; line-height:1.15; margin-bottom:14px; max-width:26ch; }
+  .status-row{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .badge{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; padding:5px 11px; border-radius:14px; }
+  .badge-open{ background:#fdf1cf; color:#8a6a12; }
+  .badge-auth{ background:#f1e6d4; color:#6b5535; }
+  .meta-line{ font-size:13px; color:#8a8578; margin-top:12px; }
+
+  .layout{ display:grid; grid-template-columns: 1.6fr 1fr; gap:44px; padding: 36px 0 70px; }
+  .photo{ height:220px; border-radius:10px; margin-bottom:24px;
+    background: repeating-linear-gradient(135deg, #2a2825 0 18px, #1c1b19 18px 36px); position:relative; overflow:hidden; }
+  .photo::after{ content:"foto della zona"; position:absolute; bottom:14px; left:16px; color:var(--tufo-dim); font-family:'IBM Plex Mono', monospace; font-size:11.5px; }
+
+  .desc{ font-size:15px; color:#3a3830; margin-bottom:28px; }
+  .desc p + p{ margin-top:12px; }
+
+  .thread-item{ display:flex; gap:12px; padding:16px 0; border-top:1px solid var(--line-dark); }
+  .avatar{ width:28px; height:28px; border-radius:50%; background:var(--leaf); color:#fff; font-size:11px; display:flex; align-items:center; justify-content:center; font-weight:600; flex-shrink:0; }
+  .thread-body .who{ font-size:13.5px; font-weight:600; margin-bottom:3px; }
+  .thread-body .who span{ font-weight:400; color:#8a8578; font-family:'IBM Plex Mono', monospace; font-size:11.5px; margin-left:6px; }
+  .thread-body p{ font-size:14px; color:#3a3830; }
+
+  .comment-box{ margin-top:24px; }
+  .comment-box textarea{ width:100%; min-height:80px; border:1px solid var(--line-dark); border-radius:8px; padding:12px 14px; font-family:'Inter',sans-serif; font-size:14px; resize:vertical; }
+  .comment-box button{ margin-top:10px; }
+
+  .sidebar-card{ background:#fff; border:1px solid var(--line-dark); border-radius:12px; padding:22px; margin-bottom:20px; }
+  .sidebar-card h3{ font-size:15px; margin-bottom:14px; }
+  .vote-btn{ width:100%; display:flex; align-items:center; justify-content:center; gap:8px; padding:12px; border-radius:8px; background:var(--basalt); color:var(--paper); font-weight:600; font-size:14px; border:none; cursor:pointer; margin-bottom:10px; }
+  .vote-count{ text-align:center; font-family:'IBM Plex Mono', monospace; font-size:12px; color:#8a8578; }
+  .row{ display:flex; justify-content:space-between; font-size:13.5px; padding:8px 0; border-top:1px solid var(--line-dark); }
+  .row:first-of-type{ border-top:none; }
+  .row .v{ font-weight:600; }
+  .timeline{ list-style:none; }
+  .timeline li{ display:flex; gap:10px; font-size:13px; padding:8px 0; color:#5c5a52; }
+  .timeline .dot{ width:7px; height:7px; border-radius:50%; margin-top:5px; flex-shrink:0; }
+  .dot-done{ background:var(--leaf-bright); }
+  .dot-pending{ background:#d8cdb2; }
+  .btn-outline{ display:block; text-align:center; width:100%; padding:11px; border-radius:8px; border:1px solid var(--line-dark); font-size:13.5px; font-weight:600; text-decoration:none; color:var(--basalt); }
+  .btn-outline:hover{ border-color:var(--basalt); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="makenapoligreen-mockup.html" class="brand"><span class="dot"></span>MakeNapoliGreen</a>
+    <a href="makenapoligreen-mockup.html#progetti" class="back">← Torna al registro progetti</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="issue-header">
+    <div class="issue-tag mono"><span class="num">#0412</span> · aperta 6 giorni fa da <strong>MR</strong></div>
+    <h1 class="title">Piazza Mercato — pavimentazione in basalto nero, temperatura estiva rilevata +9°C</h1>
+    <div class="status-row">
+      <span class="badge badge-open">● proposto</span>
+      <span class="badge badge-auth">autorizzazione: da avviare</span>
+    </div>
+    <div class="meta-line">Zona: Mercato · Superficie interessata: ~340 m² · Nessuna copertura verde rilevata</div>
+  </div>
+
+  <div class="layout">
+    <div>
+      <div class="photo"></div>
+      <div class="desc">
+        <p>Il tratto tra via Sopramuro e la fermata della metro è interamente pavimentato in basolato scuro, senza alberi né elementi ombreggianti in un raggio di oltre 150 metri. Nei mesi estivi la superficie diventa un punto critico per anziani e commercianti con banco fisso.</p>
+        <p>Proposta iniziale: alberatura a filare su due lati della piazza, con specie resistenti al clima urbano (es. Celtis australis), più una pergola leggera davanti all'ingresso del mercato coperto.</p>
+      </div>
+
+      <h3 style="font-size:16px; margin-bottom:6px;">Discussione · 12</h3>
+      <div class="thread-item">
+        <div class="avatar">GC</div>
+        <div class="thread-body">
+          <div class="who">Giulia C. <span>commerciante della zona</span></div>
+          <p>Confermo, d'estate è impossibile stare fuori dopo le 11. Sosterrei qualsiasi proposta che porti ombra vera, non solo tende private.</p>
+        </div>
+      </div>
+      <div class="thread-item">
+        <div class="avatar">LP</div>
+        <div class="thread-body">
+          <div class="who">Luca P. <span>agronomo</span></div>
+          <p>Il Celtis australis regge bene lo stress idrico ma servirà una valutazione sul sottosuolo per i sottoservizi prima di procedere.</p>
+        </div>
+      </div>
+
+      <div class="comment-box">
+        <textarea placeholder="Aggiungi un contributo — un'osservazione, una competenza, una disponibilità..."></textarea>
+        <button class="vote-btn" style="width:auto; padding:10px 20px;">Pubblica commento</button>
+      </div>
+    </div>
+
+    <aside>
+      <div class="sidebar-card">
+        <button class="vote-btn">▲ Sostieni questa istanza</button>
+        <div class="vote-count">84 persone la sostengono</div>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Stato autorizzativo</h3>
+        <ul class="timeline">
+          <li><span class="dot dot-done"></span> Segnalazione verificata dal comitato di quartiere</li>
+          <li><span class="dot dot-pending"></span> Richiesta di parere tecnico al Comune</li>
+          <li><span class="dot dot-pending"></span> Autorizzazione alla piantumazione</li>
+          <li><span class="dot dot-pending"></span> Avvio cantiere</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Finanziamento</h3>
+        <div class="row"><span>Raccolto</span><span class="v mono">€ 1.240</span></div>
+        <div class="row"><span>Obiettivo stimato</span><span class="v mono">€ 6.000</span></div>
+        <div class="row"><span>Fonti attive</span><span class="v mono">2</span></div>
+      </div>
+
+      <a href="proponi.html" class="btn-outline">Proponi una soluzione per questa zona</a>
+    </aside>
+  </div>
+</div>
+
+</body>
+</html>
