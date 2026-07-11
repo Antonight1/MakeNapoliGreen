@@ -1,283 +1,150 @@
 <!DOCTYPE html>
-<html lang="it" class="scroll-smooth">
+<html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Progetti — MakeNapoliGreen</title>
-  <meta name="description" content="Esplora tutti i progetti di sostenibilità urbana su MakeNapoliGreen: aiuole, orti, piantumazioni e pulizie nelle città della Campania." />
+  <title>Registro Progetti — MakeNapoliGreen</title>
+  <meta name="description" content="Registro pubblico di tutti i progetti e le segnalazioni di sostenibilità urbana su MakeNapoliGreen." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'verde': { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#15803d',800:'#166534',900:'#14532d',950:'#052e16' },
-            'terra':  { 50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f',950:'#451a03' },
-            'foresta': '#2d6a4f',
-            'menta':   '#74c69d',
-            'dark':    '#1b1b1b',
-          },
-          fontFamily: { sans: ['Inter','sans-serif'] },
-        }
-      }
-    }
-  </script>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="bg-verde-50 font-sans text-dark antialiased">
+<body>
 
-  <!-- ===== HEADER ===== -->
-  <header id="main-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-verde-100 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="flex items-center gap-2 font-extrabold text-xl text-foresta hover:opacity-80 transition-opacity">
-          🌿 <span>MakeNapoliGreen</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-          <a href="projects.html" class="nav-link text-foresta font-semibold border-b-2 border-foresta pb-0.5">
-            <span class="lang-it">Progetti</span><span class="lang-en">Projects</span>
-          </a>
-          <a href="index.html#come-funziona" class="nav-link text-gray-600 hover:text-foresta transition-colors">
-            <span class="lang-it">Come Funziona</span><span class="lang-en">How It Works</span>
-          </a>
-          <a href="about.html" class="nav-link text-gray-600 hover:text-foresta transition-colors">
-            <span class="lang-it">Chi Siamo</span><span class="lang-en">About</span>
-          </a>
-          <a href="start.html" class="bg-foresta text-white px-5 py-2 rounded-full hover:bg-verde-800 transition-colors font-semibold">
-            <span class="lang-it">Inizia</span><span class="lang-en">Start</span>
-          </a>
-          <button class="lang-toggle-btn text-xs font-bold text-foresta border border-foresta rounded-full px-3 py-1 hover:bg-verde-50 transition-colors">EN</button>
-        </nav>
-        <div class="flex md:hidden items-center gap-3">
-          <button class="lang-toggle-btn text-xs font-bold text-foresta border border-foresta rounded-full px-2 py-1">EN</button>
-          <button id="mobile-menu-btn" aria-label="Apri menu" aria-expanded="false">
-            <i data-lucide="menu" class="w-6 h-6" style="color:#2d6a4f"></i>
-          </button>
-        </div>
+<nav class="site-nav" aria-label="Navigazione principale">
+  <div class="inner">
+    <a href="index.html" class="brand"><span class="dot"></span>MakeNapoliGreen</a>
+    <div class="nav-links">
+      <a href="index.html#mappa"><span class="lang-it">Mappa</span><span class="lang-en">Map</span></a>
+      <a href="projects.html" style="color:var(--paper);"><span class="lang-it">Progetti</span><span class="lang-en">Projects</span></a>
+      <a href="index.html#come-funziona"><span class="lang-it">Come Funziona</span><span class="lang-en">How It Works</span></a>
+      <a href="about.html"><span class="lang-it">Chi Siamo</span><span class="lang-en">About</span></a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="lang-btn">EN</button>
+      <a href="start.html" class="nav-cta">
+        <span class="lang-it">Proponi un progetto</span><span class="lang-en">Propose a project</span>
+      </a>
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Apri menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu">
+    <a href="index.html#mappa"><span class="lang-it">Mappa</span><span class="lang-en">Map</span></a>
+    <a href="projects.html"><span class="lang-it">Progetti</span><span class="lang-en">Projects</span></a>
+    <a href="index.html#come-funziona"><span class="lang-it">Come Funziona</span><span class="lang-en">How It Works</span></a>
+    <a href="about.html"><span class="lang-it">Chi Siamo</span><span class="lang-en">About</span></a>
+    <a href="start.html" style="color:#6fa050;font-weight:600;"><span class="lang-it">Proponi un progetto →</span><span class="lang-en">Propose a project →</span></a>
+  </div>
+</nav>
+
+<!-- Page header -->
+<div style="background:var(--basalt);color:var(--paper);padding:48px 0 40px;border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="eyebrow-plain mono" style="color:var(--leaf-bright);">
+      <span class="lang-it">registro pubblico</span><span class="lang-en">public register</span>
+    </div>
+    <h1 style="font-size:38px;margin-bottom:10px;">
+      <span class="lang-it">Tutti i Progetti</span>
+      <span class="lang-en">All Projects</span>
+    </h1>
+    <p style="color:var(--tufo-dim);font-size:15px;max-width:52ch;">
+      <span class="lang-it">Segnalazioni aperte, progetti in corso, cantieri completati — tutto nello stesso registro, sempre tracciabile.</span>
+      <span class="lang-en">Open reports, active projects, completed works — all in the same register, always traceable.</span>
+    </p>
+  </div>
+</div>
+
+<!-- Filters (sticky) -->
+<div style="background:var(--paper-bright);border-bottom:1px solid var(--line-dark);position:sticky;top:64px;z-index:20;">
+  <div class="wrap" style="padding-top:14px;padding-bottom:14px;">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+      <!-- Search -->
+      <div style="position:relative;flex:1;min-width:160px;max-width:280px;">
+        <svg style="position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#8a8578;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="search-input" type="text" placeholder="Cerca..." style="padding:8px 12px 8px 32px;border:1px solid var(--line-dark);border-radius:20px;font-size:13px;width:100%;background:#fff;font-family:inherit;" aria-label="Cerca progetto" />
       </div>
+      <!-- Category chips -->
+      <button class="chip active" data-group="cat" data-filter="">
+        <span class="lang-it">Tutte le categorie</span><span class="lang-en">All categories</span>
+      </button>
+      <button class="chip" data-group="cat" data-filter="Aiuola">Aiuola</button>
+      <button class="chip" data-group="cat" data-filter="Orto Urbano">Orto Urbano</button>
+      <button class="chip" data-group="cat" data-filter="Pulizia">Pulizia</button>
+      <button class="chip" data-group="cat" data-filter="Piantumazione">Piantumazione</button>
+      <!-- Status chips -->
+      <button class="chip active" data-group="stat" data-filter="" style="margin-left:4px;">
+        <span class="lang-it">Tutti gli stati</span><span class="lang-en">All statuses</span>
+      </button>
+      <button class="chip" data-group="stat" data-filter="Attivo">
+        <span class="lang-it">Attivo</span><span class="lang-en">Active</span>
+      </button>
+      <button class="chip" data-group="stat" data-filter="Idea">Idea</button>
+      <button class="chip" data-group="stat" data-filter="Completato">
+        <span class="lang-it">Completato</span><span class="lang-en">Completed</span>
+      </button>
+      <span id="results-count" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8a8578;margin-left:auto;"></span>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-verde-100 px-4 py-4 flex flex-col gap-1 text-sm font-medium shadow-lg">
-      <a href="projects.html" class="mobile-nav-link text-foresta font-semibold hover:bg-verde-50 rounded-lg px-3 py-2.5">
-        <span class="lang-it">Progetti</span><span class="lang-en">Projects</span>
-      </a>
-      <a href="index.html#come-funziona" class="mobile-nav-link text-gray-700 hover:text-foresta hover:bg-verde-50 rounded-lg px-3 py-2.5 transition-colors">
-        <span class="lang-it">Come Funziona</span><span class="lang-en">How It Works</span>
-      </a>
-      <a href="about.html" class="mobile-nav-link text-gray-700 hover:text-foresta hover:bg-verde-50 rounded-lg px-3 py-2.5 transition-colors">
-        <span class="lang-it">Chi Siamo</span><span class="lang-en">About</span>
-      </a>
-      <a href="start.html" class="mobile-nav-link mt-2 bg-foresta text-white px-4 py-2.5 rounded-full text-center font-semibold hover:bg-verde-800 transition-colors">
-        <span class="lang-it">Inizia un Progetto</span><span class="lang-en">Start a Project</span>
-      </a>
-    </div>
-  </header>
+  </div>
+</div>
 
-  <!-- ===== PAGE HEADER ===== -->
-  <section class="bg-white border-b border-verde-100 py-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl md:text-4xl font-extrabold text-foresta mb-2">
-        <span class="lang-it">Tutti i Progetti</span>
-        <span class="lang-en">All Projects</span>
-      </h1>
-      <p class="text-gray-500">
-        <span class="lang-it">Esplora le iniziative di sostenibilità urbana attive nelle nostre città.</span>
-        <span class="lang-en">Explore the urban sustainability initiatives active in our cities.</span>
+<!-- Projects list -->
+<main>
+  <div class="wrap" style="padding-top:40px;padding-bottom:60px;">
+    <div class="issue-list">
+      <div id="projects-grid"></div>
+    </div>
+    <div id="no-results" style="display:none;text-align:center;padding:60px 0;color:#8a8578;">
+      <p style="font-size:32px;margin-bottom:12px;">🔍</p>
+      <p style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:6px;">
+        <span class="lang-it">Nessun progetto trovato</span><span class="lang-en">No projects found</span>
       </p>
-    </div>
-  </section>
-
-  <!-- ===== FILTER BAR ===== -->
-  <section class="bg-white border-b border-verde-100 sticky top-16 z-30 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      <div class="flex flex-wrap gap-3 items-center">
-        <!-- Search -->
-        <div class="relative flex-1 min-w-[180px] max-w-xs">
-          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-          <input id="search-input" type="text" placeholder="Cerca progetto..." class="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-full bg-verde-50 focus:bg-white transition-colors" aria-label="Cerca progetto" />
-        </div>
-        <!-- Category filter -->
-        <select id="filter-category" class="text-sm border border-gray-200 rounded-full px-4 py-2 bg-verde-50 hover:bg-white transition-colors cursor-pointer">
-          <option value=""><span class="lang-it">Tutte le categorie</span></option>
-          <option value="Aiuola">Aiuola</option>
-          <option value="Orto Urbano">Orto Urbano</option>
-          <option value="Pulizia">Pulizia</option>
-          <option value="Piantumazione">Piantumazione</option>
-          <option value="Altro">Altro</option>
-        </select>
-        <!-- Status filter -->
-        <select id="filter-status" class="text-sm border border-gray-200 rounded-full px-4 py-2 bg-verde-50 hover:bg-white transition-colors cursor-pointer">
-          <option value=""><span class="lang-it">Tutti gli stati</span></option>
-          <option value="Attivo">Attivo</option>
-          <option value="Idea">Idea</option>
-          <option value="Completato">Completato</option>
-        </select>
-        <!-- Results count -->
-        <span id="results-count" class="text-sm text-gray-400 ml-auto"></span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROJECTS GRID ===== -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    <div id="no-results" class="hidden text-center py-16 text-gray-400">
-      <i data-lucide="search-x" class="w-12 h-12 mx-auto mb-4 opacity-40"></i>
-      <p class="text-lg font-semibold mb-2">
-        <span class="lang-it">Nessun progetto trovato</span>
-        <span class="lang-en">No projects found</span>
-      </p>
-      <p class="text-sm">
+      <p style="font-size:14px;">
         <span class="lang-it">Prova a modificare i filtri o la ricerca.</span>
-        <span class="lang-en">Try changing the filters or search query.</span>
+        <span class="lang-en">Try adjusting the filters or search query.</span>
       </p>
     </div>
-  </main>
+  </div>
 
-  <!-- ===== CTA ===== -->
-  <section class="py-14 bg-white border-t border-verde-100">
-    <div class="max-w-2xl mx-auto px-4 text-center">
-      <p class="text-gray-500 mb-4">
-        <span class="lang-it">Non trovi un progetto nella tua zona?</span>
-        <span class="lang-en">Don't see a project in your area?</span>
-      </p>
-      <a href="start.html" class="inline-flex items-center gap-2 bg-foresta text-white font-bold px-7 py-3 rounded-full hover:bg-verde-800 transition-colors shadow">
-        <i data-lucide="plus-circle" class="w-5 h-5"></i>
-        <span class="lang-it">Apri il tuo progetto</span>
-        <span class="lang-en">Open your project</span>
-      </a>
-    </div>
-  </section>
+  <!-- CTA -->
+  <div style="border-top:1px solid var(--line-dark);padding:48px 0;text-align:center;">
+    <p style="color:#5c5a52;font-size:14px;margin-bottom:16px;">
+      <span class="lang-it">Non trovi un progetto nella tua zona?</span>
+      <span class="lang-en">Don't see a project in your area?</span>
+    </p>
+    <a href="start.html" class="btn btn-dark">
+      <span class="lang-it">Apri una nuova istanza</span>
+      <span class="lang-en">Open a new issue</span>
+    </a>
+  </div>
+</main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="bg-dark text-white py-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-      <span class="font-bold text-menta text-base">🌿 MakeNapoliGreen</span>
-      <nav class="flex gap-5">
-        <a href="projects.html" class="hover:text-white transition-colors"><span class="lang-it">Progetti</span><span class="lang-en">Projects</span></a>
-        <a href="about.html" class="hover:text-white transition-colors"><span class="lang-it">Chi Siamo</span><span class="lang-en">About</span></a>
-        <a href="start.html" class="hover:text-white transition-colors"><span class="lang-it">Inizia</span><span class="lang-en">Start</span></a>
-      </nav>
-      <span>© 2026 MakeNapoliGreen</span>
-    </div>
-  </footer>
+<footer class="site-footer">
+  <div class="inner">
+    <div class="brand"><span class="dot"></span>MakeNapoliGreen</div>
+    <nav>
+      <a href="projects.html"><span class="lang-it">Progetti</span><span class="lang-en">Projects</span></a>
+      <a href="start.html"><span class="lang-it">Proponi</span><span class="lang-en">Propose</span></a>
+      <a href="about.html"><span class="lang-it">Chi Siamo</span><span class="lang-en">About</span></a>
+    </nav>
+    <span>© 2026 MakeNapoliGreen</span>
+  </div>
+</footer>
 
-  <!-- Back to top -->
-  <button id="back-to-top" class="fixed bottom-6 right-6 w-11 h-11 rounded-full shadow-lg flex items-center justify-center z-30" style="background:#2d6a4f;color:#fff;" aria-label="Torna in cima">
-    <i data-lucide="chevron-up" class="w-5 h-5"></i>
-  </button>
+<button id="back-to-top" aria-label="Torna in cima">↑</button>
 
-  <!-- Scripts -->
-  <script src="projects.js"></script>
-  <script src="cookie-banner.js"></script>
-  <script src="script.js"></script>
-  <script>
-    (function () {
-      const statusClass = { 'Attivo': 'badge-attivo', 'Idea': 'badge-idea', 'Completato': 'badge-completato' };
-      const statusLabelIT = { 'Attivo': 'Attivo', 'Idea': 'Idea', 'Completato': 'Completato' };
-      const statusLabelEN = { 'Attivo': 'Active', 'Idea': 'Idea', 'Completato': 'Completed' };
-      const catClass = { 'Aiuola': 'tag-aiuola', 'Orto Urbano': 'tag-orto', 'Pulizia': 'tag-pulizia', 'Piantumazione': 'tag-piantumazione', 'Altro': 'tag-altro' };
-
-      function renderCard(p) {
-        const card = document.createElement('a');
-        card.href = 'project.html?id=' + p.id;
-        card.className = 'project-card block bg-white rounded-2xl overflow-hidden shadow-sm border border-verde-100 group';
-        card.innerHTML = `
-          <div class="overflow-hidden h-48">
-            <img src="${p.img}" alt="${p.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-          </div>
-          <div class="p-5">
-            <div class="flex items-center gap-2 mb-3 flex-wrap">
-              <span class="text-xs font-semibold px-2.5 py-1 rounded-full ${statusClass[p.status] || 'badge-idea'}">
-                <span class="lang-it">${statusLabelIT[p.status] || p.status}</span>
-                <span class="lang-en">${statusLabelEN[p.status] || p.status}</span>
-              </span>
-              <span class="text-xs font-semibold px-2.5 py-1 rounded-full ${catClass[p.category] || 'tag-altro'}">${p.category}</span>
-              <span class="ml-auto text-xs text-gray-400 flex items-center gap-1">
-                <i data-lucide="building-2" class="w-3 h-3"></i>${p.city}
-              </span>
-            </div>
-            <h3 class="font-bold text-foresta text-lg mb-1">
-              <span class="lang-it">${p.title}</span><span class="lang-en">${p.titleEn}</span>
-            </h3>
-            <p class="text-xs text-gray-400 mb-2 flex items-center gap-1">
-              <i data-lucide="map-pin" class="w-3 h-3"></i>${p.location}
-            </p>
-            <p class="text-sm text-gray-600 mb-4 line-clamp-2">
-              <span class="lang-it">${p.description}</span><span class="lang-en">${p.descriptionEn}</span>
-            </p>
-            <div class="flex items-center justify-between text-xs text-gray-400 border-t border-gray-50 pt-3">
-              <span class="flex items-center gap-1">
-                <i data-lucide="users" class="w-3.5 h-3.5"></i>${p.contributors}
-                <span class="lang-it">volontari</span><span class="lang-en">volunteers</span>
-              </span>
-              <span class="text-foresta font-semibold group-hover:underline flex items-center gap-1">
-                <span class="lang-it">Vedi Progetto</span><span class="lang-en">View Project</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </span>
-            </div>
-          </div>
-        `;
-        return card;
-      }
-
-      const grid = document.getElementById('projects-grid');
-      const noResults = document.getElementById('no-results');
-      const countEl = document.getElementById('results-count');
-      const searchInput = document.getElementById('search-input');
-      const catFilter = document.getElementById('filter-category');
-      const statusFilter = document.getElementById('filter-status');
-
-      function getCurrentLang() {
-        try { return localStorage.getItem('mng_lang') || 'it'; } catch(e){ return 'it'; }
-      }
-
-      function filterAndRender() {
-        const lang = getCurrentLang();
-        const query = searchInput.value.toLowerCase();
-        const cat = catFilter.value;
-        const status = statusFilter.value;
-
-        const filtered = projects.filter(p => {
-          const title = lang === 'it' ? p.title : p.titleEn;
-          const desc = lang === 'it' ? p.description : p.descriptionEn;
-          const matchQ = !query || title.toLowerCase().includes(query) || desc.toLowerCase().includes(query) || p.location.toLowerCase().includes(query) || p.city.toLowerCase().includes(query);
-          const matchC = !cat || p.category === cat;
-          const matchS = !status || p.status === status;
-          return matchQ && matchC && matchS;
-        });
-
-        grid.innerHTML = '';
-        if (filtered.length === 0) {
-          noResults.classList.remove('hidden');
-          grid.style.display = 'none';
-        } else {
-          noResults.classList.add('hidden');
-          grid.style.display = '';
-          filtered.forEach(p => grid.appendChild(renderCard(p)));
-        }
-
-        countEl.textContent = lang === 'it'
-          ? filtered.length + ' progett' + (filtered.length === 1 ? 'o' : 'i')
-          : filtered.length + ' project' + (filtered.length === 1 ? '' : 's');
-
-        if (typeof applyLanguage !== 'undefined') applyLanguage(lang);
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-      }
-
-      searchInput.addEventListener('input', filterAndRender);
-      catFilter.addEventListener('change', filterAndRender);
-      statusFilter.addEventListener('change', filterAndRender);
-
-      // Initial render
-      filterAndRender();
-
-      // Re-render when language changes (listen for storage events on same page via custom event)
-      document.addEventListener('mng-lang-change', filterAndRender);
-    })();
-  </script>
+<script src="projects.js"></script>
+<script src="cookie-banner.js"></script>
+<script src="script.js"></script>
+<script>
+  // Initial render on page load
+  document.addEventListener('DOMContentLoaded', function () {
+    filterProjects();
+    // Re-render on language change
+    document.addEventListener('mng-lang-change', filterProjects);
+  });
+</script>
 </body>
 </html>
