@@ -203,21 +203,27 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      // Demo mode: no backend wired yet — record locally + show thanks.
-      // TODO: POST to web3forms (or MNG backend) once access_key is available.
-      var payload = {
-        motivo: state.motivo,
-        impressione: state.impressione,
-        cosa_non_ha_funzionato: document.getElementById('mng-es-broken').value.trim(),
-        cosa_vorresti_vedere: document.getElementById('mng-es-wish').value.trim(),
-        pagina: location.pathname,
-        ts: new Date().toISOString()
-      };
-      try {
-        var log = JSON.parse(localStorage.getItem('mng_survey_responses') || '[]');
-        log.push(payload);
-        localStorage.setItem('mng_survey_responses', JSON.stringify(log));
-      } catch (e) {}
+      var broken = document.getElementById('mng-es-broken').value.trim();
+      var wish = document.getElementById('mng-es-wish').value.trim();
+
+      fetch('/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          motivo: state.motivo,
+          impressione: state.impressione,
+          broken: broken,
+          wish: wish,
+          pagina: location.pathname
+        })
+      }).catch(function () {
+        // Keep a local copy if the request fails (e.g. offline) so nothing is silently lost.
+        try {
+          var log = JSON.parse(localStorage.getItem('mng_survey_responses') || '[]');
+          log.push({ motivo: state.motivo, impressione: state.impressione, broken: broken, wish: wish, pagina: location.pathname, ts: new Date().toISOString() });
+          localStorage.setItem('mng_survey_responses', JSON.stringify(log));
+        } catch (e) {}
+      });
 
       formWrap.style.display = 'none';
       thanks.style.display = 'block';
