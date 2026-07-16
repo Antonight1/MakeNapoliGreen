@@ -212,6 +212,7 @@
 
 <script src="projects.js"></script>
 <script src="cookie-banner.js"></script>
+<script src="exit-survey.js"></script>
 <script src="script.js"></script>
 <script>
 (function () {
@@ -276,6 +277,9 @@
       form.style.display = 'none';
       successMsg.style.display = 'block';
       successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        if (window.MNGExitSurvey) window.MNGExitSurvey.open();
+      }, 1000);
       return;
     }
 
@@ -286,6 +290,9 @@
       form.style.display = 'none';
       successMsg.style.display = 'block';
       successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        if (window.MNGExitSurvey) window.MNGExitSurvey.open();
+      }, 1000);
     } catch (err) {
       const currentLang2 = (function(){ try { return localStorage.getItem('mng_lang') || 'it'; } catch(e){ return 'it'; } })();
       errorDiv.textContent = currentLang2 === 'it' ? 'Errore durante l\'invio. Riprova tra poco.' : 'Error sending. Please try again.';

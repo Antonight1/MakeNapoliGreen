@@ -307,6 +307,44 @@ nav.site-nav .inner {
 .step h3 { font-size: 20px; margin-bottom: 10px; }
 .step p { font-size: 14px; color: #5c5a52; line-height: 1.6; }
 
+/* --- Inspiration section --- */
+.inspiration-section {
+    background: var(--paper-bright);
+    border-top: 1px solid var(--line-dark);
+    border-bottom: 1px solid var(--line-dark);
+}
+.inspiration-head { margin-bottom: 24px; }
+.inspiration-head h2 { font-size: 30px; margin-bottom: 8px; }
+.inspiration-head p { color: #5c5a52; font-size: 14.5px; max-width: 70ch; }
+.inspiration-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.inspiration-card {
+    background: #fff;
+    border: 1px solid var(--line-dark);
+    border-radius: 12px;
+    padding: 18px;
+}
+.inspiration-card h3 { font-size: 18px; margin-bottom: 10px; }
+.inspiration-copy { font-size: 14px; color: #5c5a52; margin-bottom: 10px; }
+.inspiration-local {
+    font-size: 13.5px;
+    color: #3a3830;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(28, 27, 25, 0.2);
+}
+.inspiration-sources {
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: #6b675d;
+}
+.inspiration-sources a {
+    color: var(--brick);
+    text-decoration: underline;
+}
+
 /* --- Funding section --- */
 .fund-section {
     background: var(--tufo); border-radius: 16px; padding: 48px;
@@ -435,6 +473,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* --- Section spacing --- */
 section { padding: 80px 0; }
+.section-block { border-top: 1px solid var(--line-dark); }
+.section-kicker {
+    color: var(--leaf);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.section-mappa { background: #fff; }
+.section-progetti { background: #f8f5ec; }
+.section-process { background: var(--paper-bright); border-bottom: 1px solid var(--line-dark); }
+.section-funding { background: #fff; }
 
 /* --- Responsive --- */
 @media (max-width: 860px) {
@@ -445,6 +495,7 @@ section { padding: 80px 0; }
     .hero-grid { grid-template-columns: 1fr; }
     h1.headline { font-size: 36px !important; }
     .process { grid-template-columns: 1fr; }
+    .inspiration-grid { grid-template-columns: 1fr; }
     .fund-section { grid-template-columns: 1fr; padding: 32px; }
     .row2 { grid-template-columns: 1fr; }
     .type-toggle { flex-direction: column; }
